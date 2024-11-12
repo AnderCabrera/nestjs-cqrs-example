@@ -5,7 +5,7 @@ import { Task } from '../../entities/task.entity';
 import { CreateTaskCommand } from '../commands/create-task.command';
 
 @CommandHandler(CreateTaskCommand)
-export class UpdatedByCompletedHandler
+export class CreateTaskHandler
     implements ICommandHandler<CreateTaskCommand>
 {
     constructor(
