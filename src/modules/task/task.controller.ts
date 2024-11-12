@@ -23,6 +23,7 @@ import { UpdateByCompletedCommand } from './cqrs/commands/updated-by-completed.c
 import { DeleteTaskCommand } from './cqrs/commands/delete-task.command';
 import { Task } from './entities/task.entity';
 import { ListTaskQuery } from './cqrs/queries/list-task.query';
+import { ListByIdTaskQuery } from './cqrs/queries/list-by-id-task.command';
 
 @Controller('/api/task')
 export class TaskController {
@@ -34,12 +35,29 @@ export class TaskController {
     @Get('/')
     async getTasks(): Promise<Task[]> {
         const command = new ListTaskQuery();
+        console.log(command)
+        return await this.queryBus.execute(command);
+    }
+
+    @Get('/:id')
+    async getTaskById(@Param('id') id: number) {
+        const taskId = Number(id);
+
+        if (isNaN(taskId)) {
+            throw new BadRequestException(
+                'The "id" parameter must be a valid number.',
+            );
+        }
+
+        const command = new ListByIdTaskQuery(taskId);
 
         return await this.queryBus.execute(command);
     }
 
     @Post('/add')
-    async createTask(@Body() description: string): Promise<void> {
+    async createTask(@Body() body: { description: string }): Promise<void> {
+        const { description } = body;
+        
         if (!description)
             throw new BadRequestException("Description can't be empty");
 
