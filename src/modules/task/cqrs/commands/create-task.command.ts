@@ -1,3 +1,5 @@
-export class CreateTaskCommand {
+import { ICommand } from "@nestjs/cqrs";
+
+export class CreateTaskCommand implements ICommand {
     constructor(public readonly description: string) {}
 }
