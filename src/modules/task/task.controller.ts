@@ -23,7 +23,7 @@ import { UpdateByCompletedCommand } from './cqrs/commands/updated-by-completed.c
 import { DeleteTaskCommand } from './cqrs/commands/delete-task.command';
 import { Task } from './entities/task.entity';
 import { ListTaskQuery } from './cqrs/queries/list-task.query';
-import { ListByIdTaskQuery } from './cqrs/queries/list-by-id-task.command';
+import { ListByIdTaskQuery } from './cqrs/queries/list-by-id-task.query';
 
 @Controller('/api/task')
 export class TaskController {
