@@ -35,7 +35,6 @@ export class TaskController {
     @Get('/')
     async getTasks(): Promise<Task[]> {
         const command = new ListTaskQuery();
-        console.log(command)
         return await this.queryBus.execute(command);
     }
 
