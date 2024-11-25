@@ -18,12 +18,12 @@ import {
     Version,
 } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { CreateTaskCommand } from './commands/impl/create-task.command';
-import { UpdateByCompletedCommand } from './commands/impl/updated-by-completed.command';
-import { DeleteTaskCommand } from './commands/impl/delete-task.command';
-import { Task } from './entities/task.entity';
-import { ListTaskQuery } from './queries/impl/list-task.query';
-import { ListByIdTaskQuery } from './queries/impl/list-by-id-task.query';
+import { UpdateByCompletedCommand } from '../commands/impl/updated-by-completed.command';
+import { DeleteTaskCommand } from '../commands/impl/delete-task.command';
+import { Task } from '../entities/task.entity';
+import { ListTaskQuery } from '../queries/impl/list-task.query';
+import { ListByIdTaskQuery } from '../queries/impl/list-by-id-task.query';
+import { CreateTaskCommand } from '../commands/impl/create-task.command';
 
 @Controller('/api/task')
 export class TaskController {
