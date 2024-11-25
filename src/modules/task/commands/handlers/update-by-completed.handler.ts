@@ -1,5 +1,5 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { UpdateByCompletedCommand } from '../commands/updated-by-completed.command';
+import { UpdateByCompletedCommand } from '../impl/updated-by-completed.command';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Task } from '../../entities/task.entity';
 import { Repository } from 'typeorm';

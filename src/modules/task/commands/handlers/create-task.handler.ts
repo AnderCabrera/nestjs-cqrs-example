@@ -2,7 +2,7 @@ import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Task } from '../../entities/task.entity';
-import { CreateTaskCommand } from '../commands/create-task.command';
+import { CreateTaskCommand } from '../impl/create-task.command';
 
 @CommandHandler(CreateTaskCommand)
 export class CreateTaskHandler

@@ -2,7 +2,7 @@ import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Task } from '../../entities/task.entity';
 import { Repository } from 'typeorm';
-import { ListTaskQuery } from '../queries/list-task.query';
+import { ListTaskQuery } from '../impl/list-task.query';
 
 @QueryHandler(ListTaskQuery)
 export class ListTaskHandler implements IQueryHandler<ListTaskQuery> {

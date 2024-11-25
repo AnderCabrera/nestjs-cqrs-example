@@ -2,12 +2,12 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Task } from './entities/task.entity';
 import { CqrsModule } from '@nestjs/cqrs';
-import { TaskController } from './task.controller';
-import { CreateTaskHandler } from './cqrs/handlers/create-task.handler';
-import { DeleteTaskHandler } from './cqrs/handlers/delete-task.handler';
-import { UpdateByCompletedHandler } from './cqrs/handlers/update-by-completed.handler';
-import { ListTaskHandler } from './cqrs/handlers/list-task.handler';
-import { ListByIdTaskHandler } from './cqrs/handlers/list-by-id-task.handler';
+import { TaskController } from './controllers/task.controller';
+import { CreateTaskHandler } from './commands/handlers/create-task.handler';
+import { DeleteTaskHandler } from './commands/handlers/delete-task.handler';
+import { UpdateByCompletedHandler } from './commands/handlers/update-by-completed.handler';
+import { ListTaskHandler } from './queries/handlers/list-task.handler';
+import { ListByIdTaskHandler } from './queries/handlers/list-by-id-task.handler';
 
 @Module({
     imports: [TypeOrmModule.forFeature([Task]), CqrsModule],
